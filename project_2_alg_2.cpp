@@ -16,9 +16,10 @@ using namespace std;
 
 
 int main () {	
-	int total = 35;
+	int total = 33;
 	int size_of_array = 4;
 	int coin_values[4] = {1,5,10,25};
+	int change[100];
 	int max_value, max_value_location;
 	int minimum_coin_count = 0;
 	
@@ -34,23 +35,19 @@ int main () {
 
 		while (total >= max_value){
 			total = total - max_value;
+			change[minimum_coin_count] = max_value;
 			minimum_coin_count++;
 	//		cout << max_value;
 		}
 		max_value = 0;
 	}
 
-	
-	
-
-
-
     cout << "The minimum number of coins needed is " << minimum_coin_count << "!\n";
- //   cout << "The max array is { ";
-   // for(int a = beginning_index;a<=end_index; a++){
-	 // cout << array[a];
-   	 // cout << " ";
-	//}
+    cout << "The change array is { ";
+    for(int a = 0;a<minimum_coin_count; a++){
+	  cout << change[a];
+   	  cout << " ";
+	}
     cout << "}\n";
 
     return 0;
