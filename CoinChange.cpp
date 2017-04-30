@@ -187,7 +187,7 @@ void Print(FILE * q, int w, int c, struct cc *data)
 		printf("%d\n", num_c);
 	}
 }
-int Get_data_and_test()
+int Get_data_and_test(FILE *pFile)
 {
 	struct cc *data = (struct cc*) malloc(10000);
 
@@ -200,8 +200,8 @@ int Get_data_and_test()
 	int c;//the number of data sets;
 	int buffer;
 	char str[200];
-	FILE * pFile;
-	pFile = fopen("coins.txt", "r");
+	//FILE * pFile;
+	//pFile = fopen(argv[1], "r");
 	while(fgets(str, 200, pFile))
 	{
 		int  i=0;//the number of coins
@@ -265,9 +265,13 @@ int Get_data_and_test()
 	fclose(p_1);	
 
 }
-int main()
+int main(int argc, char *argv[])
 {
-
-	Get_data_and_test();
+	FILE * pFile;
+	pFile = fopen(argv[1], "r");
+	//string filename(argv[1]);
+	//const char * c = filename.c_str();
+	//cout << filename; 
+	Get_data_and_test(pFile);
 	return 0;
 }
